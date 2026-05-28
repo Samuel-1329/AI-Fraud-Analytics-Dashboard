@@ -1,0 +1,4 @@
+dataset/creditcard.csv
+models/fraud_model.pkl
+__pycache__/
+.ipynb_checkpoints/
