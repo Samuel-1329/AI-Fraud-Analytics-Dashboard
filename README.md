@@ -92,19 +92,25 @@ This project demonstrates practical applications of:
 
 ## 📊 Overview Dashboard
 
-(Add overview dashboard screenshot here)
+![Overview Dashboard](images/overview.png)
+
+---
 
 ## 📈 Analytics Dashboard
 
-(Add analytics dashboard screenshot here)
+![Analytics Dashboard](images/analytics.png)
+
+---
 
 ## 🤖 Model Performance Dashboard
 
-(Add model performance screenshot here)
+![Model Performance Dashboard](images/performance.png)
+
+---
 
 ## 🧠 Business Insights Dashboard
 
-(Add business insights screenshot here)
+![Business Insights Dashboard](images/insights.png)
 
 
 # 📈 Model Performance Results
