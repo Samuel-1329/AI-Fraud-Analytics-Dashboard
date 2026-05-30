@@ -63,12 +63,25 @@ show_data = st.sidebar.checkbox(
 # LOAD DATA
 # ---------------------------------------------------
 
-df = pd.read_csv("dataset/creditcard_sample.csv")
+import os
 
-importance = pd.read_csv(
-    "dataset/feature_importance.csv"
+BASE_DIR = os.path.dirname(os.path.dirname(__file__))
+
+csv_path = os.path.join(
+    BASE_DIR,
+    "dataset",
+    "creditcard_sample.csv"
+)
+st.write(csv_path)
+df = pd.read_csv(csv_path)
+
+importance_path = os.path.join(
+    BASE_DIR,
+    "dataset",
+    "feature_importance.csv"
 )
 
+importance = pd.read_csv(importance_path)
 # Convert time into hours
 df['Hour'] = df['Time'] / 3600
 
