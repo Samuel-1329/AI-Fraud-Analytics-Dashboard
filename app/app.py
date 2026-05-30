@@ -58,19 +58,7 @@ Skills Demonstrated
 show_data = st.sidebar.checkbox(
     "Show Raw Dataset"
 )
-col1, col2 = st.columns(2)
 
-with col1:
-    st.link_button(
-        "💻 GitHub Repository",
-        "YOUR_GITHUB_LINK"
-    )
-
-with col2:
-    st.link_button(
-        "🚀 Live Dashboard",
-        "YOUR_STREAMLIT_LINK"
-    )
 # ---------------------------------------------------
 # LOAD DATA
 # ---------------------------------------------------
