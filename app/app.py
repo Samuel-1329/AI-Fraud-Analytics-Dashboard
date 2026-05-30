@@ -40,7 +40,7 @@ show_data = st.sidebar.checkbox(
 # LOAD DATA
 # ---------------------------------------------------
 
-df = pd.read_csv("dataset/creditcard.csv")
+df = pd.read_csv("dataset/creditcard_sample.csv")
 
 importance = pd.read_csv(
     "dataset/feature_importance.csv"
