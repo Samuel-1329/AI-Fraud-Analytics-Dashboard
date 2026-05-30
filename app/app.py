@@ -1,4 +1,3 @@
-
 import streamlit as st
 import pandas as pd
 import plotly.express as px
@@ -12,13 +11,24 @@ st.set_page_config(
     page_icon="💳",
     layout="wide"
 )
-
 # ---------------------------------------------------
 # SIDEBAR
 # ---------------------------------------------------
 
 st.sidebar.title("💳 Dashboard Navigation")
+col1, col2 = st.columns(2)
 
+with col1:
+    st.link_button(
+        "💻 GitHub Repository",
+        "https://github.com/Samuel-1329/AI-Fraud-Analytics-Dashboard"
+    )
+
+with col2:
+    st.link_button(
+        "🚀 Live Dashboard",
+        "https://ai-fraud-analytics-dashboard-nnfrggqvfhqz6ih2azmcxl.streamlit.app"
+    )
 st.sidebar.info("""
 AI-Powered Fraud Detection System
 
@@ -31,11 +41,36 @@ AI-Powered Fraud Detection System
 - Plotly
 - Data Visualization
 """)
+st.sidebar.success("""
+Skills Demonstrated
 
+✔ Data Cleaning
+✔ Exploratory Data Analysis
+✔ Feature Engineering
+✔ SMOTE
+✔ Machine Learning
+✔ Fraud Detection
+✔ Streamlit
+✔ Data Visualization
+✔ Business Analytics
+✔ GitHub Deployment
+""")
 show_data = st.sidebar.checkbox(
     "Show Raw Dataset"
 )
+col1, col2 = st.columns(2)
 
+with col1:
+    st.link_button(
+        "💻 GitHub Repository",
+        "YOUR_GITHUB_LINK"
+    )
+
+with col2:
+    st.link_button(
+        "🚀 Live Dashboard",
+        "YOUR_STREAMLIT_LINK"
+    )
 # ---------------------------------------------------
 # LOAD DATA
 # ---------------------------------------------------
@@ -80,18 +115,21 @@ This dashboard analyzes financial transaction patterns using:
 - Financial Analytics
 - Data Visualization
 """)
-
+st.info(
+    "Dashboard deployed using a representative sample dataset for cloud deployment."
+)
 st.divider()
 
 # ---------------------------------------------------
 # DASHBOARD TABS
 # ---------------------------------------------------
 
-tab1, tab2, tab3, tab4 = st.tabs([
+tab1, tab2, tab3, tab4, tab5 = st.tabs([
     "📊 Overview",
     "📈 Analytics",
     "🤖 Model Performance",
-    "🧠 Business Insights"
+    "🧠 Business Insights",
+    "🔮 Fraud Prediction"
 ])
 
 # ===================================================
@@ -243,6 +281,17 @@ with tab2:
         top_fraud[['Time', 'Amount']]
     )
 
+    st.subheader("🔄 Project Workflow")
+
+    st.markdown("""
+    1. Data Collection
+    2. Data Cleaning
+    3. Exploratory Data Analysis
+    4. SMOTE Balancing
+    5. Random Forest Training
+    6. Model Evaluation
+    7. Dashboard Deployment
+    """)
 # ===================================================
 # TAB 3 — MODEL PERFORMANCE
 # ===================================================
@@ -350,23 +399,82 @@ with tab4:
         st.subheader("📄 Full Dataset")
         st.dataframe(df)
 
+with tab5:
+
+    st.subheader("🔮 AI Fraud Risk Simulator")
+
+    st.info("""
+    This simulator demonstrates how transaction characteristics
+    can influence fraud risk assessment.
+    """)
+    amount = st.number_input(
+        "Transaction Amount",
+        min_value=0.0,
+        value=100.0
+    )
+
+    hour = st.slider(
+        "Transaction Hour",
+        0,
+        24,
+        12
+    )
+
+    if st.button("Predict Risk"):
+
+        risk_score = 0
+
+        if amount > 1000:
+            risk_score += 40
+
+        if hour < 5 or hour > 23:
+            risk_score += 30
+
+        if amount > 5000:
+            risk_score += 30
+
+        if risk_score >= 60:
+            st.error("⚠ High Fraud Risk")
+        elif risk_score >= 30:
+            st.warning("⚠ Medium Fraud Risk")
+        else:
+            st.success("✅ Low Fraud Risk")
+
+report_text = f"""
+AI Fraud Analytics Report
+
+Total Transactions: {total_transactions:,}
+Fraud Transactions: {fraud_transactions:,}
+Genuine Transactions: {genuine_transactions:,}
+Fraud Percentage: {fraud_percentage:.4f}%
+
+Generated from Fraud Analytics Dashboard
+Developed by Samuel Anuhya
+"""
+
+st.download_button(
+    "📄 Download Analytics Report",
+    report_text,
+    file_name="fraud_analytics_report.txt"
+)
+
 # ---------------------------------------------------
 # FOOTER
 # ---------------------------------------------------
-
 st.divider()
 
 st.caption(
     "Built using Python, Machine Learning, Random Forest, SMOTE, Streamlit and Plotly"
 )
 
-st.markdown(
-    """
-    <center>
-    <h4>🚀 Developed by Samuel Anuhya</h4>
-    <p>AI-Powered Financial Fraud Analytics Dashboard</p>
-    </center>
-    """,
-    unsafe_allow_html=True
-)
+st.markdown("""
+### 🚀 Developed by Samuel Anuhya
 
+AI-Powered Fraud Detection & Financial Analytics Dashboard
+
+🔗 GitHub:
+https://github.com/Samuel-1329/AI-Fraud-Analytics-Dashboard
+
+🌐 Live Dashboard:
+https://ai-fraud-analytics-dashboard-nnfrggqvfhqz6ih2azmcxl.streamlit.app
+""")
